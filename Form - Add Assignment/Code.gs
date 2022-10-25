@@ -1,3 +1,4 @@
+//Posts form output into new line in raw data sheet
 function addRecord(courseTitleF, assignmentF, assignTypeF, dayStartDateF, dayDueDateF, timeDueDateF, noteF) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var dataSheet = ss.getSheetByName("[HIDDEN] Assignment Raw Data");
@@ -15,8 +16,17 @@ function addRecord(courseTitleF, assignmentF, assignTypeF, dayStartDateF, dayDue
 //Populate dropdown section
 
 function addMenu() {
-  var menu = SpreadsheetApp.getUi().createMenu('DADDY'); //change createMenu(___) to the name of the menu
-  menu.addItem('Add Assignment', 'addAssign'); // if changing 'addAssign' be sure to change it in the function, also called addAssign, as well
+  var menu = SpreadsheetApp.getUi().createMenu('Classes and Assignments');
+  menu.addSubMenu(
+    ui.createMenu("Courses")
+    .addItem('Change or Add Assignment Types (placeholder)', 'addAssign')
+  );
+  menu.addSubMenu(
+    ui.createMenu("Assignments")
+    .addItem('Add Assignment', 'addAssign')
+    .addItem('Change Assignment Types (placeholder)', 'addAssign')
+    );
+  //menu.addItem('Add Assignment', 'addAssign');
   //add more menu items here
   menu.addToUi();
 }
