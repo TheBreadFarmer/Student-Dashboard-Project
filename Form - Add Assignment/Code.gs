@@ -25,7 +25,7 @@ function addMenu() {
       .addItem('Change or Add Courses (placeholder)', 'addAssign'))
   //menu.addItem('Add Assignment', 'addAssign');
   //add more menu items here
-  menu.addToUi();
+  .addToUi();
 }
 
 function addAssign() {
