@@ -1,3 +1,8 @@
+/*
+Update VERSION on every commit. On push, Update Version as usual but add p after the number. for example 0.0.1p
+    VERSION:
+        0.0.1
+*/
 //Posts form output into new line in raw data sheet
 function addRecord(courseTitleF, assignmentF, assignTypeF, dayStartDateF, dayDueDateF, timeDueDateF, noteF) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
