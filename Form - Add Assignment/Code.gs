@@ -2,7 +2,7 @@
 function addRecord(courseTitleF, assignmentF, assignTypeF, dayStartDateF, dayDueDateF, timeDueDateF, noteF) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var dataSheet = ss.getSheetByName("[HIDDEN] Assignment Raw Data");
-  if(courseTitleF != '' && assignmentF != '' && assignTypeF != '' && dayStartDateF != '' && dayDueDateF != '' && timeDueDateF != '' && noteF)
+  if(courseTitleF != '' && assignmentF != '' && assignTypeF != '' && dayStartDateF != '' && dayDueDateF != '' && timeDueDateF != '')
   {
     dataSheet.appendRow([courseTitleF, assignmentF, assignTypeF, dayStartDateF, dayDueDateF, timeDueDateF, noteF]);
     return "<span style=\"font-weight: bold\">Record Saved</span>";
@@ -13,7 +13,7 @@ function addRecord(courseTitleF, assignmentF, assignTypeF, dayStartDateF, dayDue
   }
 }
 
-//Populate dropdown section
+//Populate dropdowns and menu
 
 function addMenu() {
   var ui = SpreadsheetApp.getUi();
@@ -26,6 +26,10 @@ function addMenu() {
   //menu.addItem('Add Assignment', 'addAssign');
   //add more menu items here
   .addToUi();
+}
+
+function onOpen(e) {
+  addMenu();
 }
 
 function addAssign() {
@@ -45,8 +49,4 @@ function getAssignTypeList() {
   var assignTypeSheet = ss.getSheetByName("[HIDDEN] Assignment Types");
   var [headers, ...data] = assignTypeSheet.getDataRange().getValues();
   return data;
-}
-
-function onOpen(e) {
-  addMenu();
 }
