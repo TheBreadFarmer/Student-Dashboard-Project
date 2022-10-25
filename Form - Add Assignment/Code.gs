@@ -16,16 +16,13 @@ function addRecord(courseTitleF, assignmentF, assignTypeF, dayStartDateF, dayDue
 //Populate dropdown section
 
 function addMenu() {
-  var menu = SpreadsheetApp.getUi().createMenu('Classes and Assignments');
-  menu.addSubMenu(
-    ui.createMenu("Courses")
-    .addItem('Change or Add Assignment Types (placeholder)', 'addAssign')
-  );
-  menu.addSubMenu(
-    ui.createMenu("Assignments")
-    .addItem('Add Assignment', 'addAssign')
-    .addItem('Change Assignment Types (placeholder)', 'addAssign')
-    );
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('Classes and Assignments')
+    .addSubMenu(ui.createMenu('Assignments')
+      .addItem('Add Assignment', 'addAssign')
+      .addItem('Change or Add Assignment Types (placeholder)', 'addAssign'))
+    .addSubMenu(ui.createMenu('Courses')
+      .addItem('Change or Add Courses (placeholder)', 'addAssign'))
   //menu.addItem('Add Assignment', 'addAssign');
   //add more menu items here
   menu.addToUi();
